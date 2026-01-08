@@ -1,0 +1,1 @@
+https://huggingface.co/jules-ai/mobilenetv4_resample_retrieve
