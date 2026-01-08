@@ -3,6 +3,7 @@ project(demo)
 
 set(CMAKE_CXX_STANDARD 17)
 
+set(OpenCV_ROOT "${VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}/share/opencv4")
 find_package(OpenCV REQUIRED)
 
 include_directories(${OpenCV_INCLUDE_DIRS})
