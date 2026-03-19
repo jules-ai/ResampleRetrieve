@@ -10,6 +10,10 @@ include_directories(${OpenCV_INCLUDE_DIRS})
 include_directories(src)
 
 file(GLOB SOURCES "src/*.cpp")
-add_executable(demo ${SOURCES})
+list(REMOVE_ITEM SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/src/demo.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/src/demo_cluster.cpp")
 
+add_executable(demo src/demo.cpp ${SOURCES})
 target_link_libraries(demo ${OpenCV_LIBS})
+
+add_executable(demo_cluster src/demo_cluster.cpp ${SOURCES})
+target_link_libraries(demo_cluster ${OpenCV_LIBS})
