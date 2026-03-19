@@ -23,6 +23,7 @@ namespace jules
             {ModelType::MOBILENET_V4_S, {"mobilenetv4_s", 224}},
             {ModelType::MOBILENET_V4_M, {"mobilenetv4_m", 384}},
             {ModelType::MOBILENET_V4_L, {"mobilenetv4_l", 384}},
+            {ModelType::DINO_V2_VITB8, {"dino_v2_vitb8", 224}},
     };
 
     int ResampleRetrieval::Init(ModelType model_type)

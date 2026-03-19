@@ -20,6 +20,7 @@ namespace jules
         MOBILENET_V4_S = 0,
         MOBILENET_V4_M = 1,
         MOBILENET_V4_L = 2,
+        DINO_V2_VITB8 = 3,
     };
 
     class ResampleRetrieval
