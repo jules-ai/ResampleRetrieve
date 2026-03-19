@@ -27,12 +27,12 @@ int main(int argc, char *argv[])
 
     jules::ResampleRetrieval retriever;
 
-    for (auto model_type : {jules::ModelType::MOBILENET_V4_S, jules::ModelType::MOBILENET_V4_M, jules::ModelType::MOBILENET_V4_L})
+    for (auto model_type : {jules::ModelType::MOBILENET_V4_S, jules::ModelType::MOBILENET_V4_M, jules::ModelType::MOBILENET_V4_L, jules::ModelType::DINO_V2_VITB8})
     {
         if (0 != retriever.Init(model_type))
         {
             std::cerr << "Failed to initialize ResampleRetrieval with model type " << static_cast<size_t>(model_type) << std::endl;
-            return -1;
+            continue;
         }
 
         auto start = std::chrono::high_resolution_clock::now();
