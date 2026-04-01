@@ -40,8 +40,11 @@ int main()
 {
     double threshold = get_config("cluster_threshold", 0.6);
     double speed_up = get_config("speed_up", 0.0);
+    double formation_trigger = get_config("formation_trigger", 2.0);
+    size_t trigger_count = static_cast<size_t>(formation_trigger);
     std::cout << "Cluster threshold: " << threshold << std::endl;
     std::cout << "Speedup: " << speed_up << std::endl;
+    std::cout << "Formation trigger: " << trigger_count << std::endl;
     auto start_time = std::chrono::high_resolution_clock::now();
     auto model_type = jules::ModelType::DINO_V2_VITB8;
     if (speed_up >= 1.0)
@@ -109,7 +112,7 @@ int main()
             }
         }
 
-        if (!cluster_members.empty())
+        if (cluster_members.size() >= trigger_count)
         {
             std::string current_cluster_dir = clusters_dir + "/cluster_" + std::to_string(cluster_id);
             fs::create_directories(current_cluster_dir);
